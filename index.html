@@ -1,211 +1,493 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>مستر جم | خرید جم Free Fire</title>
+<title>مستر جم | MR GEM | خرید جم Free Fire</title>
 
-    <meta name="description"
-          content="مستر جم - خرید جم فری فایر با ثبت سفارش آنلاین. MR GEM">
+<meta name="description" content="مستر جم MR GEM - خرید جم Free Fire با آیدی و اطلاعات">
 
-    <meta name="keywords"
-          content="مستر جم, MR GEM, خرید جم فری فایر, جم Free Fire">
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#06111f;
+    color:#fff;
+    min-height:100vh;
+}
 
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background: #080808;
-            color: #ffffff;
-        }
+header{
+    background:linear-gradient(135deg,#071a31,#0b6cff);
+    padding:22px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #168cff;
+}
 
-        header {
-            padding: 25px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #2b2100;
-        }
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#fff;
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #f5c542;
-        }
+.logo span{
+    color:#35aaff;
+}
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            margin-right: 20px;
-        }
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:0 8px;
+    font-size:14px;
+}
 
-        nav a:hover {
-            color: #f5c542;
-        }
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
 
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(180deg, #151000, #080808);
-        }
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:
+    radial-gradient(circle at top,#1267c9,#06111f 60%);
+}
 
-        .hero h1 {
-            font-size: 45px;
-            color: #f5c542;
-            margin-bottom: 20px;
-        }
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
 
-        .hero p {
-            color: #cccccc;
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+.hero h1 span{
+    color:#29a9ff;
+}
 
-        .btn {
-            display: inline-block;
-            background: #f5c542;
-            color: #000;
-            padding: 14px 30px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.hero p{
+    color:#c8dfff;
+    font-size:18px;
+    margin-bottom:35px;
+}
 
-        .packages {
-            padding: 60px 8%;
-        }
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
 
-        .packages h2 {
-            text-align: center;
-            color: #f5c542;
-            margin-bottom: 40px;
-            font-size: 30px;
-        }
+.btn{
+    border:0;
+    background:linear-gradient(135deg,#168cff,#0056c7);
+    color:white;
+    padding:15px 28px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    box-shadow:0 8px 25px rgba(0,120,255,.25);
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.btn:hover{
+    transform:translateY(-2px);
+}
 
-        .card {
-            background: #111111;
-            border: 1px solid #2b2100;
-            border-radius: 15px;
-            padding: 30px 20px;
-            text-align: center;
-        }
+.section{
+    padding:50px 0;
+}
 
-        .card h3 {
-            color: #f5c542;
-            font-size: 25px;
-            margin-bottom: 15px;
-        }
+.section-title{
+    text-align:center;
+    color:#45b4ff;
+    font-size:28px;
+    margin-bottom:30px;
+}
 
-        .card p {
-            color: #cccccc;
-            margin-bottom: 20px;
-        }
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
 
-        .price {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+.card{
+    background:linear-gradient(145deg,#0b2037,#071321);
+    border:1px solid #174d7d;
+    border-radius:18px;
+    padding:25px 15px;
+    text-align:center;
+    transition:.2s;
+}
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #2b2100;
-            color: #888888;
-        }
+.card:hover{
+    transform:translateY(-4px);
+    border-color:#25a8ff;
+}
 
-        @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 32px;
-            }
+.card h3{
+    color:#35adff;
+    font-size:25px;
+    margin-bottom:12px;
+}
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+.price{
+    font-size:18px;
+    margin:15px 0;
+    color:#fff;
+}
 
-            nav a {
-                margin: 0 8px;
-            }
-        }
-    </style>
+.soon{
+    color:#7eb4d9;
+}
+
+.unavailable{
+    color:#ff9b9b;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.panel{
+    background:#091a2c;
+    border:1px solid #174d7d;
+    border-radius:18px;
+    padding:25px;
+    margin-top:30px;
+}
+
+input,textarea{
+    width:100%;
+    background:#061321;
+    border:1px solid #245b87;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    margin:8px 0 15px;
+    font-family:inherit;
+}
+
+label{
+    color:#cce8ff;
+    font-size:14px;
+}
+
+.selected{
+    border:2px solid #2baaff;
+    box-shadow:0 0 20px rgba(43,170,255,.18);
+}
+
+.check{
+    display:none;
+    color:#27e27b;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.summary{
+    background:#061321;
+    border-radius:12px;
+    padding:20px;
+    margin-top:20px;
+    line-height:2;
+}
+
+footer{
+    margin-top:60px;
+    padding:30px;
+    text-align:center;
+    color:#7fa3c1;
+    border-top:1px solid #173b5d;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:30px;
+    }
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">MR GEM</div>
+    <div class="logo">MR <span>GEM</span></div>
 
     <nav>
-        <a href="#">خانه</a>
-        <a href="#packages">پکیج جم</a>
-        <a href="#contact">تماس با ما</a>
+        <a href="#home">خانه</a>
+        <a href="#freefire">Free Fire</a>
+        <a href="#order">سفارش</a>
     </nav>
 </header>
 
-<section class="hero">
-    <h1>مستر جم</h1>
+<section class="hero" id="home">
+    <div class="container">
 
-    <p>
-        فروش جم Free Fire با ثبت سفارش آنلاین
-    </p>
+        <h1>
+            به <span>مستر جم</span> خوش آمدید
+        </h1>
 
-    <a class="btn" href="#packages">
-        مشاهده پکیج‌ها
-    </a>
+        <p>
+            فروش جم Free Fire با طراحی اختصاصی MR GEM
+        </p>
+
+        <div class="buttons">
+            <button class="btn" onclick="showSection('freefire')">
+                🎮 Free Fire
+            </button><button class="btn" onclick="showSection('information')">
+                🎁 Free Fire با اطلاعات
+            </button>
+        </div>
+
+    </div>
 </section>
 
-<section class="packages" id="packages">
+<section class="section container hidden" id="freefire">
 
-    <h2>پکیج‌های جم Free Fire</h2>
+    <h2 class="section-title">
+        🎮 FREE FIRE — MR GEM
+    </h2>
+
+    <div class="cards" id="gemCards"></div>
+
+    <div class="panel hidden" id="uidPanel">
+
+        <h3 style="color:#35adff;margin-bottom:20px;">
+            ثبت سفارش
+        </h3>
+
+        <p id="selectedText"></p>
+
+        <label>آیدی Free Fire</label>
+        <input id="uid" type="text" placeholder="آیدی خود را وارد کنید">
+
+        <button class="btn" onclick="checkUID()">
+            بررسی آیدی
+        </button>
+
+        <div class="check" id="uidCheck">
+            ✓ آیدی با موفقیت بررسی شد
+        </div>
+
+        <button class="btn" id="orderBtn" style="display:none;margin-top:15px;"
+                onclick="openOrder()">
+            ثبت سفارش
+        </button>
+
+    </div>
+
+</section>
+
+<section class="section container hidden" id="information">
+
+    <h2 class="section-title">
+        🎁 Free Fire با اطلاعات
+    </h2>
 
     <div class="cards">
 
         <div class="card">
-            <h3>100 💎</h3>
-            <p>پکیج اقتصادی</p>
-            <div class="price">قیمت به‌زودی</div>
-            <a class="btn" href="#">خرید</a>
+            <h3>آفر 1 دلاری</h3>
+            <p class="soon">به‌زودی</p>
         </div>
 
         <div class="card">
-            <h3>310 💎</h3>
-            <p>پکیج محبوب</p>
-            <div class="price">قیمت به‌زودی</div>
-            <a class="btn" href="#">خرید</a>
-        </div><div class="card">
-            <h3>520 💎</h3>
-            <p>پکیج ویژه</p>
-            <div class="price">قیمت به‌زودی</div>
-            <a class="btn" href="#">خرید</a>
+            <h3>آفر 2 دلاری</h3>
+            <p class="soon">به‌زودی</p>
         </div>
 
         <div class="card">
-            <h3>1060 💎</h3>
-            <p>پکیج حرفه‌ای</p>
-            <div class="price">قیمت به‌زودی</div>
-            <a class="btn" href="#">خرید</a>
+            <h3>کارت ماهانه</h3>
+            <div class="price">۹۰۰ هزار تومان</div>
+            <div class="unavailable">ناموجود</div>
+        </div>
+
+        <div class="card">
+            <h3>کارت هفتگی</h3>
+            <p class="soon">به‌زودی</p>
+        </div>
+
+        <div class="card">
+            <h3>کارت هفتگی Lite</h3>
+            <p class="soon">به‌زودی</p>
+        </div>
+
+        <div class="card">
+            <h3>Level Up Package</h3>
+            <p class="soon">به‌زودی</p>
         </div>
 
     </div>
 
 </section>
 
-<footer id="contact">
-    © 2026 MR GEM - مستر جم
+<section class="section container hidden" id="order">
+
+    <h2 class="section-title">
+        صورت حساب و تسویه حساب
+    </h2>
+
+    <div class="panel">
+
+        <div class="summary" id="summary">
+            محصول انتخاب نشده است.
+        </div>
+
+        <label>شماره موبایل</label>
+        <input type="tel" placeholder="09xxxxxxxxx">
+
+        <label>کد تأیید</label>
+        <input type="text" placeholder="کد ارسال شده به شماره">
+
+        <label>نام</label>
+        <input type="text" placeholder="نام">
+
+        <label>نام خانوادگی</label>
+        <input type="text" placeholder="نام خانوادگی">
+
+        <label>توضیحات</label>
+        <textarea rows="4" placeholder="توضیحات سفارش"></textarea>
+
+        <p style="color:#9cc9e8;margin-bottom:15px;">
+            بازه تحویل سفارش پس از ثبت سفارش اعلام می‌شود.
+        </p>
+
+        <button class="btn" onclick="fakePayment()">
+            ادامه برای پرداخت
+        </button>
+
+        <div id="paymentMessage" class="summary hidden"></div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 MR GEM — مستر جم
 </footer>
+
+<script>
+
+const gems = [
+    ["110","۲۱۰ هزار تومان"],
+    ["230","۴۱۰ هزار تومان"],
+    ["583","۱٬۰۵۰ هزار تومان"],
+    ["1060","۲٬۰۵۰ هزار تومان"],
+    ["2180","۴ میلیون تومان"],
+    ["3240","۶ میلیون تومان"],
+    ["4360","۸ میلیون تومان"],
+    ["6600","۱۱٬۹۶۰ هزار تومان"],
+    ["11000","۱۹٬۹۰۰ هزار تومان"]
+];
+
+const gemCards = document.getElementById("gemCards");
+
+gems.forEach(item => {
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = 
+        <h3>${item[0]} 💎</h3>
+        <div class="price">${item[1]}</div>
+        <button class="btn"
+            onclick="selectGem('${item[0]}','${item[1]}',this)">
+            انتخاب
+        </button>
+    ;
+
+    gemCards.appendChild(card);
+});
+
+let selectedGem = "";
+
+function showSection(id){
+
+    document.getElementById(id).classList.remove("hidden");
+
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function selectGem(gem,price,button){
+
+    selectedGem = gem;document.querySelectorAll(".card").forEach(c=>{
+        c.classList.remove("selected");
+    });
+
+    button.parentElement.classList.add("selected");
+
+    const panel = document.getElementById("uidPanel");
+
+    panel.classList.remove("hidden");
+
+    document.getElementById("selectedText").innerHTML =
+        💎 پکیج انتخاب شده: <strong>${gem} جم</strong><br>
+         💰 قیمت: <strong>${price}</strong>;
+
+    panel.scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function checkUID(){
+
+    const uid = document.getElementById("uid").value.trim();
+
+    if(uid.length < 4){
+
+        alert("لطفاً یک آیدی وارد کنید.");
+
+        return;
+    }
+
+    document.getElementById("uidCheck").style.display = "block";
+
+    document.getElementById("orderBtn").style.display = "inline-block";
+}
+
+function openOrder(){
+
+    document.getElementById("summary").innerHTML =
+        💎 محصول: ${selectedGem} جم<br>
+         🆔 آیدی: ${document.getElementById("uid").value}<br>
+         وضعیت: آماده ثبت سفارش;
+
+    showSection("order");
+}
+
+function fakePayment(){
+
+    const message = document.getElementById("paymentMessage");
+
+    message.classList.remove("hidden");
+
+    message.innerHTML =
+        سفارش شما آماده پرداخت است.<br>
+         درگاه اینترنتی در نسخه بعدی به سایت متصل می‌شود.<br>
+         <strong>وضعیت فعلی: در انتظار پرداخت</strong>;
+}
+
+</script>
 
 </body>
 </html>
