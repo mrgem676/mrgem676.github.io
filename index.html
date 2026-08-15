@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>مستر جم | MR GEM | Free Fire</title>
-
-<meta name="description" content="مستر جم - خرید جم Free Fire با آیدی و اطلاعات">
+<title>مستر جم | MR GEM</title>
+<meta name="description" content="مستر جم - خرید جم Free Fire">
 
 <style>
 *{
@@ -18,15 +17,15 @@
 body{
     font-family:Tahoma,Arial,sans-serif;
     background:#061525;
-    color:white;
+    color:#fff;
     min-height:100vh;
 }
 
 header{
-    background:linear-gradient(135deg,#061b35,#0879df);
-    padding:20px 7%;
+    background:linear-gradient(135deg,#061a31,#0879df);
+    border-bottom:2px solid #27aaff;
+    padding:20px;
     text-align:center;
-    border-bottom:2px solid #24aaff;
 }
 
 .logo{
@@ -35,64 +34,75 @@ header{
 }
 
 .logo span{
-    color:#36b4ff;
+    color:#39b7ff;
 }
 
-.hero{
+.page{
+    display:none;
+    min-height:calc(100vh - 80px);
+}
+
+.page.active{
+    display:block;
+}
+
+.home{
     text-align:center;
-    padding:70px 20px;
-    background:radial-gradient(circle at top,#126ac4,#061525 65%);
+    padding:90px 20px;
+    background:radial-gradient(circle at top,#126bc7,#061525 65%);
 }
 
-.hero h1{
-    font-size:38px;
-    margin-bottom:15px;
+.home h1{
+    font-size:40px;
+    margin-bottom:18px;
 }
 
-.hero h1 span{
-    color:#35b5ff;
+.home h1 span{
+    color:#36b6ff;
 }
 
-.hero p{
-    color:#cce7ff;
-    margin-bottom:30px;
+.home p{
+    color:#c9e7ff;
+    margin-bottom:35px;
 }
 
-.menu{
+.main-buttons{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:18px;
     flex-wrap:wrap;
 }
 
-.menu button,
-.buy-btn{
-    border:none;
-    cursor:pointer;
-    background:linear-gradient(135deg,#159cff,#0060cc);
+.btn{
+    border:0;
+    background:linear-gradient(135deg,#159cff,#005bc5);
     color:white;
     padding:15px 25px;
     border-radius:12px;
-    font-weight:bold;
+    cursor:pointer;
     font-size:15px;
+    font-weight:bold;
 }
 
-.section{
-    display:none;
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.content{
     width:92%;
     max-width:1100px;
     margin:40px auto;
 }
 
-.section.active{
-    display:block;
+.page-title{
+    text-align:center;
+    color:#3bb7ff;
+    font-size:30px;
+    margin-bottom:30px;
 }
 
-.title{
-    text-align:center;
-    color:#3eb7ff;
-    font-size:28px;
-    margin-bottom:30px;
+.back{
+    margin-bottom:25px;
 }
 
 .cards{
@@ -103,16 +113,16 @@ header{
 
 .card{
     background:#0a2035;
-    border:1px solid #1b5b89;
+    border:1px solid #1d5c88;
     border-radius:18px;
     padding:25px 15px;
     text-align:center;
 }
 
 .card h3{
-    color:#36b5ff;
+    color:#38b5ff;
     margin-bottom:15px;
-    font-size:24px;
+    font-size:23px;
 }
 
 .price{
@@ -120,55 +130,88 @@ header{
     font-size:17px;
 }
 
-.card .buy-btn{
-    width:100%;
-}
-
 .form-box{
-    margin-top:30px;
     background:#091d30;
-    border:1px solid #1b5b89;
+    border:1px solid #1c5b86;
     border-radius:18px;
     padding:25px;
+    margin-top:30px;
 }
 
-input,textarea{
-    width:100%;
-    padding:14px;
-    margin:8px 0 18px;
-    border-radius:10px;
-    border:1px solid #28638e;
+.summary{
     background:#061525;
-    color:white;
+    border:1px solid #174d70;
+    border-radius:12px;
+    padding:18px;
+    line-height:2;
+    margin-bottom:20px;
 }
 
 label{
     display:block;
-    color:#cce7ff;
+    color:#cce8ff;
+    margin:10px 0 6px;
+}
+
+input,textarea,select{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:1px solid #28638d;
+    background:#061525;
+    color:white;
+    font-family:inherit;
+    margin-bottom:15px;
 }
 
 .verify{
-    color:#29ed7b;
     display:none;
-    margin:15px 0;
+    color:#29ed7b;
     font-weight:bold;
+    margin:15px 0;
+}
+
+.hidden{
+    display:none;
+}
+
+.warning{
+    margin-top:20px;
+    padding:18px;
+    border-radius:12px;
+    background:#30260a;
+    border:1px solid #806515;
+    color:#ffd86b;
+    line-height:2;
+}
+
+.order-code{
+    color:#38b5ff;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    margin-top:10px;
 }
 
 footer{
     text-align:center;
-    margin-top:60px;
     padding:30px;
-    color:#7fa6c5;
-    border-top:1px solid #17405f;
+    color:#779bb8;
+    border-top:1px solid #173d5b;
+    margin-top:50px;
 }
 
 @media(max-width:600px){
-    .hero h1{
+    .home h1{
         font-size:30px;
     }
 
     .cards{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .card h3{
+        font-size:19px;
     }
 }
 </style>
@@ -182,197 +225,329 @@ footer{
     </div>
 </header>
 
-<section class="hero">
 
-    <h1>
-        به <span>مستر جم</span> خوش آمدید
-    </h1>
+<!-- ================= صفحه اصلی ================= -->
 
-    <p>
-        FREE FIRE — MR GEM
-    </p>
+<div id="homePage" class="page active">
 
-    <div class="menu">
+    <section class="home">
 
-        <button onclick="openSection('withID')">
-            🎮 Free Fire با آیدی
+        <h1>
+            به <span>مستر جم</span> خوش آمدید
+        </h1>
+
+        <p>
+            FREE FIRE — MR GEM
+        </p>
+
+        <div class="main-buttons">
+
+            <button class="btn" onclick="showPage('idPage')">
+                🎮 Free Fire با آیدی
+            </button>
+
+            <button class="btn" onclick="showPage('infoPage')">
+                🎁 Free Fire با اطلاعات
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ================= صفحه Free Fire با آیدی ================= -->
+
+<div id="idPage" class="page">
+
+    <div class="content"><button class="btn back" onclick="showPage('homePage')">
+            ← بازگشت
         </button>
 
-        <button onclick="openSection('withInfo')">
-            🎁 Free Fire با اطلاعات
-        </button>
+        <h1 class="page-title">
+            🎮 FREE FIRE — MR GEM
+        </h1>
 
-    </div>
+        <div class="cards">
 
-</section>
+            <div class="card">
+                <h3>110 جم</h3>
+                <div class="price">۲۱۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('110 جم','۲۱۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>230 جم</h3>
+                <div class="price">۴۱۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('230 جم','۴۱۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>583 جم</h3>
+                <div class="price">۱٬۰۵۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('583 جم','۱٬۰۵۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>1060 جم</h3>
+                <div class="price">۲٬۰۵۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('1060 جم','۲٬۰۵۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>2180 جم</h3>
+                <div class="price">۴ میلیون تومان</div>
+                <button class="btn" onclick="chooseGem('2180 جم','۴ میلیون تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>3240 جم</h3>
+                <div class="price">۶ میلیون تومان</div>
+                <button class="btn" onclick="chooseGem('3240 جم','۶ میلیون تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>4360 جم</h3>
+                <div class="price">۸ میلیون تومان</div>
+                <button class="btn" onclick="chooseGem('4360 جم','۸ میلیون تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>6600 جم</h3>
+                <div class="price">۱۱٬۹۶۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('6600 جم','۱۱٬۹۶۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+            <div class="card">
+                <h3>11000 جم</h3>
+                <div class="price">۱۹٬۹۰۰ هزار تومان</div>
+                <button class="btn" onclick="chooseGem('11000 جم','۱۹٬۹۰۰ هزار تومان')">
+                    انتخاب
+                </button>
+            </div>
+
+        </div>
 
 
-<!-- Free Fire با آیدی -->
+        <!-- UID -->
 
-<section id="withID" class="section">
+        <div id="uidBox" class="form-box hidden">
 
-    <h2 class="title">
-        💎 Free Fire با آیدی
-    </h2>
+            <h2 style="color:#38b5ff;margin-bottom:20px">
+                ثبت سفارش
+            </h2>
 
-    <div class="cards">
+            <div id="selectedProduct" class="summary"></div>
 
-        <div class="card">
-            <h3>110 جم</h3>
-            <div class="price">۲۱۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('110 جم','۲۱۰ هزار تومان')">
-                انتخاب
+            <label>
+                آیدی Free Fire
+            </label>
+
+            <input
+                id="uid"
+                type="text"
+                placeholder="آیدی خود را وارد کنید"
+            >
+
+            <button class="btn" onclick="checkUID()">
+                بررسی آیدی
             </button>
-        </div>
 
-        <div class="card">
-            <h3>230 جم</h3>
-            <div class="price">۴۱۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('230 جم','۴۱۰ هزار تومان')">
-                انتخاب
+            <div id="verified" class="verify">
+                ✓ آیدی با موفقیت بررسی شد
+            </div>
+
+            <button
+                id="orderButton"
+                class="btn hidden"
+                onclick="openCheckout()">
+                ثبت سفارش
             </button>
-        </div>
 
-        <div class="card">
-            <h3>583 جم</h3>
-            <div class="price">۱٬۰۵۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('583 جم','۱٬۰۵۰ هزار تومان')">
-                انتخاب
-            </button>
-        </div><div class="card">
-            <h3>1060 جم</h3>
-            <div class="price">۲٬۰۵۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('1060 جم','۲٬۰۵۰ هزار تومان')">
-                انتخاب
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>2180 جم</h3>
-            <div class="price">۴ میلیون تومان</div>
-            <button class="buy-btn" onclick="selectGem('2180 جم','۴ میلیون تومان')">
-                انتخاب
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>3240 جم</h3>
-            <div class="price">۶ میلیون تومان</div>
-            <button class="buy-btn" onclick="selectGem('3240 جم','۶ میلیون تومان')">
-                انتخاب
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>4360 جم</h3>
-            <div class="price">۸ میلیون تومان</div>
-            <button class="buy-btn" onclick="selectGem('4360 جم','۸ میلیون تومان')">
-                انتخاب
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>6600 جم</h3>
-            <div class="price">۱۱٬۹۶۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('6600 جم','۱۱٬۹۶۰ هزار تومان')">
-                انتخاب
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>11000 جم</h3>
-            <div class="price">۱۹٬۹۰۰ هزار تومان</div>
-            <button class="buy-btn" onclick="selectGem('11000 جم','۱۹٬۹۰۰ هزار تومان')">
-                انتخاب
-            </button>
-        </div>
-
-    </div>
-
-    <div id="orderBox" class="form-box" style="display:none;">
-
-        <h3 style="color:#36b5ff;margin-bottom:20px;">
-            ثبت سفارش
-        </h3>
-
-        <p id="selectedProduct"></p>
-
-        <br>
-
-        <label>آیدی Free Fire</label>
-
-        <input
-            id="uid"
-            type="text"
-            placeholder="آیدی خود را وارد کنید"
-        >
-
-        <button class="buy-btn" onclick="verifyID()">
-            بررسی آیدی
-        </button>
-
-        <div id="verified" class="verify">
-            ✓ آیدی با موفقیت بررسی شد
-        </div>
-
-        <button
-            id="submitOrder"
-            class="buy-btn"
-            style="display:none;margin-top:10px;"
-            onclick="submitOrder()"
-        >
-            ثبت سفارش
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- Free Fire با اطلاعات -->
-
-<section id="withInfo" class="section">
-
-    <h2 class="title">
-        🎁 Free Fire با اطلاعات
-    </h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>آفر 1 دلاری</h3>
-            <div class="price">به‌زودی</div>
-        </div>
-
-        <div class="card">
-            <h3>آفر 2 دلاری</h3>
-            <div class="price">به‌زودی</div>
-        </div>
-
-        <div class="card">
-            <h3>کارت ماهانه</h3>
-            <div class="price">۹۰۰ هزار تومان</div>
-            <small>ناموجود</small>
-        </div>
-
-        <div class="card">
-            <h3>کارت هفتگی</h3>
-            <div class="price">به‌زودی</div>
-        </div>
-
-        <div class="card">
-            <h3>کارت هفتگی Lite</h3>
-            <div class="price">به‌زودی</div>
-        </div>
-
-        <div class="card">
-            <h3>Level Up Package</h3>
-            <div class="price">به‌زودی</div>
         </div>
 
     </div>
 
-</section>
+</div>
+
+
+<!-- ================= صفحه Free Fire با اطلاعات ================= -->
+
+<div id="infoPage" class="page">
+
+    <div class="content">
+
+        <button class="btn back" onclick="showPage('homePage')">
+            ← بازگشت
+        </button>
+
+        <h1 class="page-title">
+            🎁 FREE FIRE با اطلاعات
+        </h1>
+
+        <div class="cards"><div class="card">
+                <h3>آفر 1 دلاری</h3>
+                <div class="price">به‌زودی</div>
+            </div>
+
+            <div class="card">
+                <h3>آفر 2 دلاری</h3>
+                <div class="price">به‌زودی</div>
+            </div>
+
+            <div class="card">
+                <h3>کارت ماهانه</h3>
+                <div class="price">۹۰۰ هزار تومان</div>
+                <p>ناموجود</p>
+            </div>
+
+            <div class="card">
+                <h3>کارت هفتگی</h3>
+                <div class="price">به‌زودی</div>
+            </div>
+
+            <div class="card">
+                <h3>کارت هفتگی Lite</h3>
+                <div class="price">به‌زودی</div>
+            </div>
+
+            <div class="card">
+                <h3>Level Up Package</h3>
+                <div class="price">به‌زودی</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= صفحه تسویه حساب ================= -->
+
+<div id="checkoutPage" class="page">
+
+    <div class="content">
+
+        <button class="btn back" onclick="showPage('idPage')">
+            ← بازگشت
+        </button>
+
+        <h1 class="page-title">
+            🧾 صورت حساب و تسویه حساب
+        </h1>
+
+        <div class="form-box">
+
+            <div id="checkoutSummary" class="summary"></div>
+
+            <label>شماره موبایل</label>
+
+            <input
+                id="phone"
+                type="tel"
+                placeholder="09xxxxxxxxx"
+            >
+
+            <button class="btn" onclick="sendCode()">
+                دریافت کد تأیید
+            </button>
+
+
+            <div id="codeBox" class="hidden">
+
+                <label>کد تأیید</label>
+
+                <input
+                    id="code"
+                    type="text"
+                    placeholder="کد تأیید"
+                >
+
+                <button class="btn" onclick="verifyCode()">
+                    تأیید کد
+                </button>
+
+            </div>
+
+
+            <div id="personalBox" class="hidden">
+
+                <label>نام</label>
+
+                <input
+                    id="firstName"
+                    type="text"
+                    placeholder="نام"
+                >
+
+                <label>نام خانوادگی</label>
+
+                <input
+                    id="lastName"
+                    type="text"
+                    placeholder="نام خانوادگی"
+                >
+
+                <label>توضیحات</label>
+
+                <textarea
+                    id="description"
+                    rows="4"
+                    placeholder="توضیحات سفارش">
+                </textarea>
+
+                <label>بازه تحویل سفارش</label>
+
+                <select id="delivery">
+                    <option value="">انتخاب کنید</option>
+                    <option>فوری</option>
+                    <option>تا ۳۰ دقیقه</option>
+                    <option>تا ۱ ساعت</option>
+                    <option>تا ۲ ساعت</option>
+                </select>
+
+                <button class="btn" onclick="goPayment()">
+                    ادامه
+                </button>
+
+            </div>
+
+
+            <div id="paymentBox" class="hidden">
+
+                <div id="finalSummary" class="summary"></div>
+
+                <button class="btn" onclick="paymentUnavailable()">
+                    💳 پرداخت
+                </button>
+
+                <div id="paymentResult"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <footer>
@@ -382,61 +557,177 @@ footer{
 
 <script>
 
-function openSection(id){
+let selectedProduct = "";
+let selectedPrice = "";
+let selectedUID = "";
 
-    document.querySelectorAll('.section').forEach(section=>{
-        section.classList.remove('active');
+
+/* تغییر صفحه */
+
+function showPage(pageID){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
     });
 
-    const section = document.getElementById(id);
+    document.getElementById(pageID).classList.add("active");
 
-    section.classList.add('active');
-
-    section.scrollIntoView({
-        behavior:'smooth'
-    });
-}
-
-
-function selectGem(product,price){
-
-    const box = document.getElementById('orderBox');
-
-    box.style.display = 'block';
-
-    document.getElementById('selectedProduct').innerHTML =
-        '💎 محصول: <strong>' + product +
-        '</strong><br>💰 قیمت: <strong>' +
-        price + '</strong>';
-
-    box.scrollIntoView({
-        behavior:'smooth'
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
     });
 }
 
 
-function verifyID(){const uid = document.getElementById('uid').value.trim();
+/* انتخاب جم */
+
+function chooseGem(product,price){
+
+    selectedProduct = product;
+    selectedPrice = price;document.getElementById("selectedProduct").innerHTML =
+        "💎 محصول: <strong>"+product+"</strong><br>"+
+        "💰 قیمت: <strong>"+price+"</strong>";
+
+    document.getElementById("uidBox").classList.remove("hidden");
+
+    document.getElementById("uidBox").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* بررسی آیدی */
+
+function checkUID(){
+
+    const uid =
+        document.getElementById("uid").value.trim();
 
     if(uid.length < 4){
 
-        alert('لطفاً آیدی Free Fire را وارد کنید.');
+        alert("لطفاً آیدی Free Fire را وارد کنید.");
 
         return;
     }
 
-    document.getElementById('verified').style.display='block';
+    selectedUID = uid;
 
-    document.getElementById('submitOrder').style.display='inline-block';
+    document.getElementById("verified").style.display="block";
+
+    document.getElementById("orderButton").classList.remove("hidden");
 }
 
 
-function submitOrder(){
+/* ثبت سفارش */
+
+function openCheckout(){
+
+    document.getElementById("checkoutSummary").innerHTML =
+        "💎 محصول: <strong>"+selectedProduct+"</strong><br>"+
+        "💰 قیمت: <strong>"+selectedPrice+"</strong><br>"+
+        "🆔 آیدی: <strong>"+selectedUID+"</strong>";
+
+    showPage("checkoutPage");
+}
+
+
+/* شماره موبایل */
+
+function sendCode(){
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    if(phone.length < 10){
+
+        alert("لطفاً شماره موبایل را درست وارد کنید.");
+
+        return;
+    }
+
+    document.getElementById("codeBox").classList.remove("hidden");
 
     alert(
-        'سفارش شما آماده ثبت است.\
-\
-درگاه پرداخت و سیستم واقعی سفارش در مرحله بعد اضافه می‌شود.'
+        "ارسال واقعی پیامک هنوز فعال نشده است. "+
+        "برای تست، یک کد دلخواه وارد کنید."
     );
+}
+
+
+/* تأیید کد */
+
+function verifyCode(){
+
+    const code =
+        document.getElementById("code").value.trim();
+
+    if(!code){
+
+        alert("لطفاً کد تأیید را وارد کنید.");
+
+        return;
+    }
+
+    document.getElementById("personalBox").classList.remove("hidden");
+
+    document.getElementById("personalBox").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* ادامه به پرداخت */
+
+function goPayment(){
+
+    const first =
+        document.getElementById("firstName").value.trim();
+
+    const last =
+        document.getElementById("lastName").value.trim();
+
+    const delivery =
+        document.getElementById("delivery").value;
+
+    if(!first || !last || !delivery){
+
+        alert("لطفاً اطلاعات را کامل کنید.");
+
+        return;
+    }
+
+    document.getElementById("finalSummary").innerHTML =
+        "💎 محصول: "+selectedProduct+
+        "<br>💰 قیمت: "+selectedPrice+
+        "<br>🆔 آیدی: "+selectedUID+
+        "<br>👤 نام: "+first+" "+last+
+        "<br>⏱️ بازه تحویل: "+delivery;
+
+    document.getElementById("paymentBox").classList.remove("hidden");
+
+    document.getElementById("paymentBox").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* پرداخت */
+
+function paymentUnavailable(){
+
+    const orderCode =
+        "MR-"+Math.floor(100000 + Math.random()*900000);
+
+    document.getElementById("paymentResult").innerHTML =
+        '<div class="warning">'+
+        '⚠️ درگاه اینترنتی هنوز در دسترس نمی‌باشد.'+
+        '<br><br>'+
+        'کد سفارش آزمایشی:'+
+        '<div class="order-code">'+
+        orderCode+
+        '</div>'+
+        'وضعیت: در انتظار پرداخت'+
+        '</div>';
 }
 
 </script>
