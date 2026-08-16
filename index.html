@@ -1,233 +1,1029 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MR GEM | مستر جم</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR GEM | مستر جم</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+    min-height:100vh;
+}
+
+button,a{
+    font-family:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.header{
+    height:75px;
+    background:#050505;
+    border-bottom:1px solid #292929;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 4%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    direction:ltr;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#ffb900;
+    font-size:25px;
+    font-weight:900;
+}
+
+.diamond{
+    font-size:32px;
+}
+
+.nav{
+    display:flex;
+    gap:38px;
+    align-items:center;
+}
+
+.nav a{
+    font-size:15px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.nav a:hover{
+    color:#ffb900;
+}
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.mobile-menu{
+    display:none;
+    position:absolute;
+    top:75px;
+    right:0;
+    width:100%;
+    background:#090909;
+    border-bottom:1px solid #ffb900;
+    padding:20px;
+    z-index:999;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:15px;
+    border-bottom:1px solid #252525;
+}
+
+.container{
+    width:94%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.hero{
+    margin-top:15px;
+    min-height:440px;
+    border:1px solid #303030;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    background:
+      linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.92)),
+      url("freefire.jpg") left center/55% 100% no-repeat;
+}
+
+.hero-content{
+    width:50%;
+    margin-right:auto;
+    padding:45px;
+    text-align:right;
+}
+
+.hero h1{
+    font-size:62px;
+    line-height:1.1;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#ffb900;
+}
+
+.hero h2{
+    font-size:22px;
+    margin-bottom:22px;
+}
+
+.hero p{
+    color:#cfcfcf;
+    line-height:2;
+    font-size:15px;
+    margin-bottom:25px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    padding:15px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-orange{
+    background:#ffb900;
+    color:#080808;
+}
+
+.btn-outline{
+    background:#080808;
+    color:#fff;
+    border:1px solid #ffb900;
+}
+
+.section-title{
+    text-align:center;
+    margin:45px 0 25px;
+    font-size:28px;
+}
+
+.section-title span{
+    color:#ffb900;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.info-card{
+    background:#0b0b0b;
+    border:1px solid #292929;
+    border-radius:18px;
+    padding:28px 20px;
+    text-align:center;
+    min-height:150px;
+}
+
+.info-icon{
+    font-size:35px;
+    color:#ffb900;
+    margin-bottom:12px;
+}
+
+.info-card h3{
+    margin-bottom:12px;
+}
+
+.info-card p{
+    color:#aaa;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.products{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.product{
+    border:1px solid #333;
+    border-radius:20px;
+    padding:18px;
+    background:#090909;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.product img{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.product h2{
+    margin-bottom:12px;
+}
+
+.product p{
+    color:#aaa;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.orange{
+    color:#ff6b00;
+}
+
+.purple{
+    color:#a000ff;
+}
+
+.cta{
+    margin:40px 0;
+    border:1px solid #292929;
+    border-radius:20px;
+    background:#0a0a0a;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.cta h2{
+    color:#ffb900;
+    margin-bottom:8px;
+}
+
+.cta p{
+    color:#aaa;
+}
+
+.page{
+    display:none;
+    padding-bottom:60px;
+}.page.active{
+    display:block;
+}
+
+.back{
+    display:inline-block;
+    margin-top:25px;
+    color:#ffb900;
+    cursor:pointer;
+}
+
+.product-page{
+    margin-top:25px;
+    border:1px solid #333;
+    border-radius:20px;
+    padding:30px;
+    background:#090909;
+}
+
+.product-page h1{
+    margin-bottom:12px;
+}
+
+.product-page .subtitle{
+    color:#aaa;
+    margin-bottom:25px;
+}
+
+.gems{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin:25px 0;
+}
+
+.gem{
+    background:#111;
+    border:1px solid #333;
+    border-radius:10px;
+    padding:15px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.gem:hover,
+.gem.selected{
+    border-color:#ffb900;
+    background:#211900;
+}
+
+.input{
+    width:100%;
+    background:#111;
+    border:1px solid #444;
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    margin:8px 0 15px;
+    outline:none;
+}
+
+.input:focus{
+    border-color:#ffb900;
+}
+
+.order-box{
+    margin-top:25px;
+    padding:20px;
+    border:1px solid #333;
+    border-radius:15px;
+    background:#0c0c0c;
+}
+
+.footer{
+    border-top:1px solid #252525;
+    margin-top:45px;
+    padding:35px 4%;
+    background:#080808;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.footer h3{
+    color:#ffb900;
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer a{
+    color:#999;
+    display:block;
+    line-height:2;
+}
+
+.copyright{
+    text-align:center;
+    color:#666;
+    margin-top:30px;
+}
+
+@media(max-width:800px){
+
+    .header{
+        height:65px;
     }
 
-    body {
-      background: #080510;
-      color: white;
-      min-height: 100vh;
+    .nav{
+        display:none;
     }
 
-    .top {
-      background: linear-gradient(90deg, #250044, #6500a8, #250044);
-      padding: 8px 15px;
-      text-align: center;
-      color: #fff;
-      font-size: 13px;
-      font-weight: bold;
-      border-bottom: 2px solid #9d00ff;
+    .menu-btn{
+        display:block;
     }
 
-    header {
-      height: 70px;
-      background: linear-gradient(90deg, #26003f, #560080, #26003f);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 18px;
-      border-radius: 0 0 22px 22px;
-      box-shadow: 0 5px 25px rgba(166, 0, 255, .35);
+    .mobile-menu{
+        top:65px;
     }
 
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: 1px;
+    .hero{
+        min-height:600px;
+        background:
+          linear-gradient(0deg,rgba(0,0,0,.97),rgba(0,0,0,.2)),
+          url("freefire.jpg") center top/100% 55% no-repeat;
+        align-items:flex-end;
     }
 
-    .logo span {
-      color: #d000ff;
+    .hero-content{
+        width:100%;
+        padding:25px;
+        text-align:center;
     }
 
-    .menu {
-      font-size: 30px;
-      cursor: pointer;
+    .hero h1{
+        font-size:42px;
     }
 
-    .welcome {
-      text-align: center;
-      margin: 35px 15px 25px;
+    .hero h2{
+        font-size:18px;
     }
 
-    .welcome h1 {
-      font-size: 25px;
-      margin-bottom: 10px;
-      color: #fff;
+    .buttons{
+        justify-content:center;
     }
 
-    .welcome p {
-      color: #c9b5d5;
-      font-size: 14px;
+    .info-grid{
+        grid-template-columns:1fr;
     }
 
-    .game-card {
-      width: calc(100% - 30px);
-      max-width: 500px;
-      margin: 25px auto;
-      background: #130b1b;
-      border: 2px solid #8c00c9;
-      border-radius: 25px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(165, 0, 255, .25);
-      transition: .2s;
+    .products{
+        grid-template-columns:1fr;
     }
 
-    .game-card:active {
-      transform: scale(.97);
+    .product{
+        flex-direction:column;
+        text-align:center;
     }
 
-    .game-card img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+    .product img{
+        width:100%;
+        height:230px;
     }
 
-    .game-title {
-      padding: 18px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      background: linear-gradient(90deg, #32004e, #7000a5);
+    .gems{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .game-title small {
-      display: block;
-      margin-top: 7px;
-      font-size: 12px;
-      color: #e6c9f1;
-      font-weight: normal;
+    .cta{
+        flex-direction:column;
+        text-align:center;
     }
 
-    .footer {
-      text-align: center;
-      color: #89758f;
-      font-size: 12px;
-      padding: 40px 10px 25px;
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
     }
-
-    .side-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 280px;
-      height: 100%;
-      background: #100817;
-      z-index: 100;
-      padding: 25px;
-      box-shadow: -5px 0 30px rgba(0,0,0,.7);
-    }
-
-    .side-menu h2 {
-      color: #d000ff;
-      margin-bottom: 30px;
-    }
-
-    .side-menu button {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 12px;
-      border: 1px solid #8c00c9;
-      border-radius: 12px;
-      background: #1d0c27;
-      color: white;
-      font-size: 15px;
-    }
-
-    .close {
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      font-size: 25px;
-      cursor: pointer;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <div class="top">
-    💎 به مستر جم خوش آمدید 💎
-  </div>
+<header class="header">
 
-  <header>
-    <div class="logo">
-      <span>MR</span> GEM
+    <a class="logo" href="#" onclick="showPage('home')">
+        <span class="diamond">💎</span>
+        <span>MR GEM</span>
+    </a>
+
+    <nav class="nav">
+        <a href="#" onclick="showPage('home')">خانه</a>
+        <a href="#" onclick="showPage('auto')">فری فایر اتوماتیک</a>
+        <a href="#" onclick="showPage('info')">فری فایر با اطلاعات</a>
+        <a href="#" onclick="showPage('support')">پشتیبانی</a>
+    </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showPage('home')">خانه</a>
+    <a href="#" onclick="showPage('auto')">فری فایر اتوماتیک</a>
+    <a href="#" onclick="showPage('info')">فری فایر با اطلاعات</a>
+    <a href="#" onclick="showPage('orders')">سفارشات</a>
+    <a href="#" onclick="showPage('support')">پشتیبانی تلگرام</a>
+</div>
+
+
+<!-- HOME -->
+<main id="home" class="page active">
+
+<div class="container">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            فری فایر<br>
+            <span>روش بزن!</span>
+        </h1>
+
+        <h2>خرید جم فری فایر سریع و مطمئن</h2>
+
+        <p>
+            خرید جم فری فایر اتوماتیک و فری فایر با اطلاعات
+            با سرعت بالا و ثبت سفارش آسان.
+        </p>
+
+        <div class="buttons"><button class="btn btn-orange"
+                    onclick="showPage('auto')">
+                فری فایر اتوماتیک ⚙️
+            </button>
+
+            <button class="btn btn-outline"
+                    onclick="showPage('info')">
+                فری فایر با اطلاعات 📊
+            </button>
+
+        </div>
+
     </div>
 
-    <div class="menu" onclick="openMenu()">☰</div>
-  </header>
+</section>
 
-  <section class="welcome">
-    <h1>مستر جم</h1>
-    <p>مرکز خرید جم و محصولات فری فایر</p>
-  </section>
 
-  <!-- کارت فری فایر -->
-  <div class="game-card" onclick="goToFreeFire()">
+<h2 class="section-title">
+    <span>تماس با ما</span>
+</h2>
 
-    <img src="5692.jpg" alt="Free Fire">
+<div class="info-grid">
 
-    <div class="game-title">
-      فری فایر
-      <small>خرید جم فری فایر</small>
+    <div class="info-card">
+        <div class="info-icon">📱</div>
+        <h3>پشتیبانی تلگرام</h3>
+        <p>
+            برای پشتیبانی و پیگیری سفارشات
+            با ما در تلگرام در ارتباط باشید.
+        </p>
+        <button class="btn btn-outline"
+                onclick="showPage('support')">
+            ورود به پشتیبانی
+        </button>
     </div>
 
-  </div>
+    <div class="info-card">
+        <div class="info-icon">💳</div>
+        <h3>تمام واریزی زیر ۳۰ ثانیه</h3>
+        <p>
+            پرداخت سریع و ثبت سفارش آسان
+            برای خرید جم فری فایر.
+        </p>
+    </div>
 
-  <div class="footer">
-    MR GEM © 2026
-  </div>
+    <div class="info-card">
+        <div class="info-icon">🛒</div>
+        <h3>سفارشات</h3>
+        <p>
+            سفارش‌های خود را مشاهده و
+            وضعیت آن‌ها را پیگیری کنید.
+        </p>
+        <button class="btn btn-outline"
+                onclick="showPage('orders')">
+            مشاهده سفارشات
+        </button>
+    </div>
 
-  <!-- منوی سه خط -->
-  <div class="side-menu" id="sideMenu">
+</div>
 
-    <div class="close" onclick="closeMenu()">×</div>
 
-    <h2>MR GEM</h2>
+<h2 class="section-title">
+    ابزارهای <span>فری فایر</span>
+</h2>
 
-    <button onclick="telegram()">
-      📱 پشتیبانی تلگرام
+<div class="products">
+
+    <div class="product">
+
+        <img src="freefire.jpg" alt="Free Fire">
+
+        <div>
+            <h2 class="orange">
+                فری فایر اتوماتیک
+            </h2>
+
+            <p>
+                خرید سریع جم فری فایر
+                با ثبت سفارش ساده و سریع.
+            </p>
+
+            <button class="btn btn-orange"
+                    onclick="showPage('auto')">
+                مشاهده و خرید
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="product">
+
+        <img src="freefire.jpg" alt="Free Fire">
+
+        <div>
+            <h2 class="purple">
+                فری فایر با اطلاعات
+            </h2>
+
+            <p>
+                ثبت سفارش فری فایر با اطلاعات
+                موردنیاز برای انجام سفارش.
+            </p>
+
+            <button class="btn"
+                    style="background:#8d00ff;color:white"
+                    onclick="showPage('info')">
+                مشاهده و خرید
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="cta">
+
+    <div>
+        <h2>همین حالا حرفه‌ای شو! 💎</h2>
+        <p>
+            با MR GEM خرید جم فری فایر را شروع کن.
+        </p>
+    </div>
+
+    <button class="btn btn-orange"
+            onclick="showPage('auto')">
+        همین حالا شروع کن ⚡
     </button>
 
-    <button onclick="orders()">
-      🧾 سفارشات
-    </button>
+</div>
 
-  </div>
+</div>
 
-  <script>
-    function goToFreeFire() {
-      window.location.href = "freefire.html";
-    }function openMenu() {
-      document.getElementById("sideMenu").style.display = "block";
+<footer class="footer">
+
+<div class="footer-grid">
+
+    <div>
+        <h3>MR GEM 💎</h3>
+        <p>
+            مستر جم؛ فروش جم فری فایر
+            با تجربه‌ای سریع و ساده.
+        </p>
+    </div>
+
+    <div>
+        <h3>لینک‌های سریع</h3>
+        <a href="#" onclick="showPage('home')">خانه</a>
+        <a href="#" onclick="showPage('auto')">فری فایر اتوماتیک</a>
+        <a href="#" onclick="showPage('info')">فری فایر با اطلاعات</a>
+        <a href="#" onclick="showPage('orders')">سفارشات</a>
+    </div>
+
+    <div>
+        <h3>تماس با ما</h3>
+        <a href="#" onclick="showPage('support')">
+            پشتیبانی تلگرام
+        </a>
+    </div>
+
+</div>
+
+<div class="copyright">
+    © MR GEM - تمامی حقوق محفوظ است.
+</div>
+
+</footer>
+
+</main>
+
+
+<!-- AUTOMATIC PAGE -->
+<section id="auto" class="page">
+
+<div class="container">
+
+<a class="back" onclick="showPage('home')">
+    ← برگشت به صفحه اصلی
+</a>
+
+<div class="product-page">
+
+<h1 class="orange">فری فایر اتوماتیک</h1>
+
+<p class="subtitle">
+    بسته جم موردنظر خود را انتخاب کنید.
+</p>
+
+<div class="gems">
+
+<button class="gem" onclick="selectGem(this,'110 جم')">
+110 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'231 جم')">
+231 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'583 جم')">
+583 جم
+</button><button class="gem" onclick="selectGem(this,'1060 جم')">
+1060 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'2180 جم')">
+2180 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'3240 جم')">
+3240 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'4360 جم')">
+4360 جم
+</button>
+
+<button class="gem" onclick="selectGem(this,'6600 جم')">
+6600 جم
+</button>
+
+</div>
+
+<label>آیدی فری فایر</label>
+
+<input id="autoId"
+       class="input"
+       type="text"
+       placeholder="آیدی بازی را وارد کنید">
+
+<div class="order-box">
+
+<strong id="selectedGem">
+هنوز بسته‌ای انتخاب نشده
+</strong>
+
+<br><br>
+
+<button class="btn btn-orange"
+        onclick="createOrder('اتوماتیک')">
+ثبت سفارش
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- INFO PAGE -->
+<section id="info" class="page">
+
+<div class="container">
+
+<a class="back" onclick="showPage('home')">
+    ← برگشت به صفحه اصلی
+</a>
+
+<div class="product-page">
+
+<h1 class="purple">
+    فری فایر با اطلاعات
+</h1>
+
+<p class="subtitle">
+    اطلاعات موردنیاز سفارش را وارد کنید.
+</p>
+
+<label>آیدی فری فایر</label>
+
+<input id="infoId"
+       class="input"
+       type="text"
+       placeholder="آیدی بازی">
+
+<label>نام کاربری</label>
+
+<input class="input"
+       type="text"
+       placeholder="نام کاربری">
+
+<label>توضیحات سفارش</label>
+
+<textarea class="input"
+          style="min-height:120px"
+          placeholder="توضیحات خود را وارد کنید"></textarea>
+
+<div class="order-box">
+
+<button class="btn"
+        style="background:#8d00ff;color:white"
+        onclick="createOrder('با اطلاعات')">
+ثبت سفارش
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ORDERS -->
+<section id="orders" class="page">
+
+<div class="container">
+
+<a class="back" onclick="showPage('home')">
+    ← برگشت
+</a>
+
+<div class="product-page">
+
+<h1>سفارشات من</h1>
+
+<div id="ordersList">
+    <p style="color:#aaa;margin-top:20px">
+        خرید ثبت نشده است.
+    </p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUPPORT -->
+<section id="support" class="page">
+
+<div class="container">
+
+<a class="back" onclick="showPage('home')">
+    ← برگشت
+</a>
+
+<div class="product-page" style="text-align:center">
+
+<h1>پشتیبانی MR GEM</h1>
+
+<p class="subtitle">
+    برای پشتیبانی و پیگیری سفارشات از طریق تلگرام با ما در ارتباط باشید.
+</p>
+
+<a class="btn btn-orange"
+   href="https://t.me/YOUR_TELEGRAM"
+   target="_blank">
+    ورود به پشتیبانی تلگرام
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+let selectedGem = "";
+
+function showPage(page){
+
+    document.querySelectorAll(".page").forEach(function(p){
+        p.classList.remove("active");
+    });
+
+    const target = document.getElementById(page);
+
+    if(target){
+        target.classList.add("active");
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
     }
 
-    function closeMenu() {
-      document.getElementById("sideMenu").style.display = "none";
+    document.getElementById("mobileMenu").style.display="none";
+
+    if(page==="orders"){
+        loadOrders();
+    }
+}
+
+
+function toggleMenu(){
+
+    const menu=document.getElementById("mobileMenu");
+
+    if(menu.style.display==="block"){
+        menu.style.display="none";
+    }else{
+        menu.style.display="block";
+    }
+}
+
+
+function selectGem(button,gem){
+
+    document.querySelectorAll(".gem").forEach(function(b){
+        b.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+
+    selectedGem=gem;
+
+    document.getElementById("selectedGem").innerText=
+        "بسته انتخاب‌شده: "+gem;
+}
+
+
+function createOrder(type){
+
+    if(type==="اتوماتیک"){
+
+        const id=document.getElementById("autoId").value.trim();
+
+        if(!selectedGem){
+            alert("لطفاً یک بسته جم انتخاب کنید.");
+            return;
+        }
+
+        if(!id){
+            alert("لطفاً آیدی فری فایر را وارد کنید.");
+            return;
+        }
     }
 
-    function telegram() {
-      alert("لینک پشتیبانی تلگرام را بعداً اضافه می‌کنیم.");
+    const orders=
+        JSON.parse(localStorage.getItem("mrgem_orders") || "[]");
+
+    const number=orders.length+1;
+
+    const order={
+        code:number,
+        type:type,
+        gem:selectedGem || "با اطلاعات",
+        status:"در انتظار پرداخت"
+    };
+
+    orders.push(order);localStorage.setItem(
+        "mrgem_orders",
+        JSON.stringify(orders)
+    );
+
+    alert(
+        "سفارش کد "+number+
+        " ثبت شد.\nوضعیت: در انتظار پرداخت"
+    );
+
+    showPage("orders");
+}
+
+
+function loadOrders(){
+
+    const box=document.getElementById("ordersList");
+
+    const orders=
+        JSON.parse(localStorage.getItem("mrgem_orders") || "[]");
+
+    if(orders.length===0){
+
+        box.innerHTML=
+        '<p style="color:#aaa">خرید ثبت نشده است.</p>';
+
+        return;
     }
 
-    function orders() {
-      alert("صفحه سفارشات را در مرحله بعد اضافه می‌کنیم.");
-    }
-  </script>
+    box.innerHTML="";
+
+    orders.forEach(function(order){
+
+        const div=document.createElement("div");
+
+        div.style.cssText=
+        "border:1px solid #333;" +
+        "border-radius:12px;" +
+        "padding:18px;" +
+        "margin-top:12px;" +
+        "background:#0d0d0d;";
+
+        div.innerHTML=
+        "<h3>سفارش کد "+order.code+"</h3>"+
+        "<p style='color:#aaa;margin-top:8px'>"+
+        "نوع: "+order.type+
+        "</p>"+
+        "<p style='color:#aaa'>"+
+        "بسته: "+order.gem+
+        "</p>"+
+        "<p style='color:#ffb900;margin-top:8px'>"+
+        order.status+
+        "</p>";
+
+        box.appendChild(div);
+    });
+}
+
+</script>
 
 </body>
 </html>
