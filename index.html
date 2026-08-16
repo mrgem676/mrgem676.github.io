@@ -1117,3 +1117,792 @@ select.input{
 <section id="orders" class="page">
 
 <div class="container">
+
+<a class="back"
+   onclick="showPage('home')">
+
+    ← برگشت
+</a>
+
+
+<div class="product-page">
+
+<h1>
+    سفارشات من
+</h1>
+
+<div id="ordersList">
+
+    <p style="color:#aaa;margin-top:20px">
+        خرید ثبت نشده است.
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SUPPORT -->
+
+<section id="support" class="page">
+
+<div class="container">
+
+<a class="back"
+   onclick="showPage('home')">
+
+    ← برگشت
+</a>
+
+
+<div class="product-page"
+     style="text-align:center">
+
+<h1>
+    پشتیبانی MR GEM
+</h1>
+
+<p class="subtitle">
+
+    برای پشتیبانی و پیگیری سفارشات
+    از طریق تلگرام با ما در ارتباط باشید.
+
+</p>
+
+
+<a class="btn btn-orange"
+   href="https://t.me/mrgem_sup"
+   target="_blank"
+   rel="noopener noreferrer">
+
+    ورود به پشتیبانی تلگرام 📱
+
+</a>
+
+
+<p style="margin-top:20px;color:#aaa;direction:rtl;">
+
+    آیدی پشتیبانی:
+
+    <strong style="color:#ffb900;direction:ltr;display:inline-block;">
+
+        @mrgem_sup
+
+    </strong>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+let selectedGem = "";
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+function showPage(page){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(function(p){
+
+            p.classList.remove("active");
+
+        });
+
+
+    const target =
+        document.getElementById(page);
+
+
+    if(target){
+
+        target.classList.add("active");
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+
+    document
+        .getElementById("mobileMenu")
+        .style.display="none";
+
+
+    if(page==="orders"){
+
+        loadOrders();
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+
+    if(menu.style.display==="block"){
+
+        menu.style.display="none";
+
+    }else{
+
+        menu.style.display="block";
+
+    }
+
+}
+
+
+/* =========================
+   SELECT GEM
+========================= */
+
+function selectGem(button,gem){
+
+    document
+        .querySelectorAll(".gem")
+        .forEach(function(b){
+
+            b.classList.remove("selected");
+
+        });
+
+
+    button.classList.add("selected");
+
+
+    selectedGem=gem;
+
+
+    document
+        .getElementById("selectedGem")
+        .innerText =
+        "بسته انتخاب‌شده: " + gem;
+
+}
+
+
+/* =========================
+   AUTOMATIC ORDER
+========================= */
+
+function createOrder(type){
+
+    if(type==="اتوماتیک"){
+
+        const id =
+            document
+            .getElementById("autoId")
+            .value
+            .trim();
+
+
+        if(!selectedGem){
+
+            alert(
+                "لطفاً یک بسته جم انتخاب کنید."
+            );
+
+            return;
+
+        }
+
+
+        if(!id){
+
+            alert(
+                "لطفاً آیدی فری فایر را وارد کنید."
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem("mrgem_orders")
+            || "[]"
+        );
+
+
+    const number =
+        orders.length + 1;
+
+
+    const order = {
+
+        code:number,
+
+        type:type,
+
+        gem:selectedGem || "با اطلاعات",
+
+        gameId:
+            document
+            .getElementById("autoId")
+            .value
+            .trim(),
+
+        status:"در انتظار پرداخت"
+
+    };
+
+
+    orders.push(order);
+
+
+    localStorage.setItem(
+        "mrgem_orders",
+        JSON.stringify(orders)
+    );
+
+
+    alert(
+        "سفارش کد " +
+        number +
+        " ثبت شد.\n\n" +
+        "وضعیت: در انتظار پرداخت"
+    );
+
+
+    document
+        .getElementById("autoId")
+        .value="";
+
+
+    selectedGem="";document
+        .getElementById("selectedGem")
+        .innerText =
+        "هنوز بسته‌ای انتخاب نشده";
+
+
+    document
+        .querySelectorAll(".gem")
+        .forEach(function(b){
+
+            b.classList.remove("selected");
+
+        });
+
+
+    showPage("orders");
+
+}
+
+
+/* =========================
+   INFO CART
+========================= */
+
+function addInfoToCart(){
+
+    const saveType =
+        document
+        .getElementById("saveType")
+        .value;
+
+
+    const email =
+        document
+        .getElementById("gameEmail")
+        .value
+        .trim();
+
+
+    const password =
+        document
+        .getElementById("gamePassword")
+        .value
+        .trim();
+
+
+    const supportCode =
+        document
+        .getElementById("supportCode")
+        .value
+        .trim();
+
+
+    const supportCode2 =
+        document
+        .getElementById("supportCode2")
+        .value
+        .trim();
+
+
+    const gameId =
+        document
+        .getElementById("infoId")
+        .value
+        .trim();
+
+
+    const description =
+        document
+        .getElementById("infoDescription")
+        .value
+        .trim();
+
+
+    if(!email){
+
+        alert(
+            "لطفاً جیمیل متصل به بازی را وارد کنید."
+        );
+
+        return;
+
+    }
+
+
+    if(!password){
+
+        alert(
+            "لطفاً پسورد را وارد کنید."
+        );
+
+        return;
+
+    }
+
+
+    if(!supportCode){
+
+        alert(
+            "لطفاً کد پشتیبانی را وارد کنید."
+        );
+
+        return;
+
+    }
+
+
+    if(!gameId){
+
+        alert(
+            "لطفاً آیدی عددی بازی را وارد کنید."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       اطلاعات فرم فقط برای ساخت
+       صورت‌حساب استفاده می‌شوند.
+
+       رمز در localStorage ذخیره نمی‌شود.
+    */
+
+    window.infoCart = {
+
+        saveType:saveType,
+
+        email:email,
+
+        password:password,
+
+        supportCode:supportCode,
+
+        supportCode2:supportCode2,
+
+        gameId:gameId,
+
+        description:description
+
+    };
+
+
+    document
+        .getElementById("infoCart")
+        .style.display="block";
+
+
+    document
+        .getElementById("invoiceContent")
+        .innerHTML =
+
+        "<div class='invoice-line'>" +
+
+        "<span>نوع سیو</span>" +
+
+        "<strong>" +
+        saveType +
+        "</strong>" +
+
+        "</div>" +
+
+
+        "<div class='invoice-line'>" +
+
+        "<span>جیمیل</span>" +
+
+        "<strong>" +
+        email +
+        "</strong>" +
+
+        "</div>" +
+
+
+        "<div class='invoice-line'>" +
+
+        "<span>کد پشتیبانی</span>" +
+
+        "<strong>" +
+        supportCode +
+        "</strong>" +
+
+        "</div>" +
+
+
+        "<div class='invoice-line'>" +
+
+        "<span>کد پشتیبانی دوم</span>" +
+
+        "<strong>" +
+        (supportCode2 || "وارد نشده") +
+        "</strong>" +
+
+        "</div>" +
+
+
+        "<div class='invoice-line'>" +
+
+        "<span>آیدی بازی</span>" +
+
+        "<strong>" +
+        gameId +
+        "</strong>" +
+
+        "</div>" +
+
+
+        "<div class='invoice-line'>" +
+
+        "<span>توضیحات</span>" +
+
+        "<strong>" +
+        (description || "بدون توضیحات") +
+        "</strong>" +
+
+        "</div>";
+
+
+    document
+        .getElementById("infoCart")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"center"
+
+        });
+
+}
+
+
+/* =========================
+   INFO ORDER
+========================= */
+
+function createInfoOrder(){
+
+    if(!window.infoCart){
+
+        alert(
+            "ابتدا اطلاعات سفارش را وارد کنید."
+        );
+
+        return;
+
+    }
+
+
+    const cart =
+        window.infoCart;
+
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem("mrgem_orders")
+            || "[]"
+        );
+
+
+    const number =
+        orders.length + 1;
+
+
+    const order = {
+
+        code:number,
+
+        type:"با اطلاعات",
+
+        saveType:cart.saveType,
+
+        email:cart.email,
+
+        supportCode:cart.supportCode,
+
+        supportCode2:cart.supportCode2,
+
+        gameId:cart.gameId,
+
+        description:cart.description,
+
+        status:"در انتظار پرداخت"
+
+    };/*
+       password عمداً ذخیره نمی‌شود.
+    */
+
+
+    orders.push(order);
+
+
+    localStorage.setItem(
+        "mrgem_orders",
+        JSON.stringify(orders)
+    );
+
+
+    alert(
+
+        "سفارش کد " +
+        number +
+        " ثبت شد.\n\n" +
+
+        "وضعیت: در انتظار پرداخت"
+
+    );
+
+
+    window.infoCart=null;
+
+
+    document
+        .getElementById("infoCart")
+        .style.display="none";
+
+
+    document
+        .getElementById("gameEmail")
+        .value="";
+
+
+    document
+        .getElementById("gamePassword")
+        .value="";
+
+
+    document
+        .getElementById("supportCode")
+        .value="";
+
+
+    document
+        .getElementById("supportCode2")
+        .value="";
+
+
+    document
+        .getElementById("infoId")
+        .value="";
+
+
+    document
+        .getElementById("infoDescription")
+        .value="";
+
+
+    showPage("orders");
+
+}
+
+
+/* =========================
+   LOAD ORDERS
+========================= */
+
+function loadOrders(){
+
+    const box =
+        document
+        .getElementById("ordersList");
+
+
+    const orders =
+        JSON.parse(
+            localStorage.getItem("mrgem_orders")
+            || "[]"
+        );
+
+
+    if(orders.length===0){
+
+        box.innerHTML =
+        '<p style="color:#aaa;margin-top:20px">' +
+        'خرید ثبت نشده است.' +
+        '</p>';
+
+        return;
+
+    }
+
+
+    box.innerHTML="";
+
+
+    orders.forEach(function(order){
+
+        const div =
+            document.createElement("div");
+
+
+        div.style.cssText =
+
+            "border:1px solid #333;" +
+
+            "border-radius:12px;" +
+
+            "padding:18px;" +
+
+            "margin-top:12px;" +
+
+            "background:#0d0d0d;";
+
+
+        let extraInfo="";
+
+
+        if(order.type==="اتوماتیک"){
+
+            extraInfo =
+
+                "<p style='color:#aaa'>" +
+
+                "آیدی بازی: " +
+
+                (order.gameId || "-") +
+
+                "</p>";
+
+        }
+
+
+        if(order.type==="با اطلاعات"){
+
+            extraInfo =
+
+                "<p style='color:#aaa'>" +
+
+                "نوع سیو: " +
+
+                (order.saveType || "جیمیل") +
+
+                "</p>" +
+
+                "<p style='color:#aaa'>" +
+
+                "جیمیل: " +
+
+                (order.email || "-") +
+
+                "</p>" +
+
+                "<p style='color:#aaa'>" +
+
+                "کد پشتیبانی: " +
+
+                (order.supportCode || "-") +
+
+                "</p>" +
+
+                "<p style='color:#aaa'>" +
+
+                "آیدی بازی: " +
+
+                (order.gameId || "-") +
+
+                "</p>";
+
+        }
+
+
+        div.innerHTML =
+
+            "<h3>" +
+
+            "سفارش کد " +
+
+            order.code +
+
+            "</h3>" +
+
+
+            "<p style='color:#aaa;margin-top:8px'>" +
+
+            "نوع: " +
+
+            order.type +
+
+            "</p>" +
+
+
+            "<p style='color:#aaa'>" +
+
+            "بسته: " +
+
+            (order.gem || "-") +
+
+            "</p>" +
+
+
+            extraInfo +
+
+
+            "<p style='color:#ffb900;margin-top:8px;font-weight:bold'>" +
+
+            order.status +
+
+            "</p>";
+
+
+        box.appendChild(div);
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
